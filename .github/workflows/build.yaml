@@ -80,6 +80,8 @@ jobs:
           install: ${{ matrix.msys2_cache_install }}
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v6
+      - run: python3 tpt_mod_apply.py || python tpt_mod_apply.py
+        shell: bash
       - if: matrix.force_msys2_bash != 'yes'
         uses: actions/setup-python@v6
         with:
